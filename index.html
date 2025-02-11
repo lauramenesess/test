@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 10; 
+            display: flex; 
+            justify-content: center; /* Centrado horizontal */
+            align-items: center; /* Centrado vertical */
+            background-color: #ffffff; 
+            font-family:'Times New Roman', Times, serif 
+        }
+
+        /* contenedor de la imagen y el texto*/
+        .content {
+            text-align: justify;
+            position: static;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto; 
+            transition: opacity 1s ease; /* transicion suave de opacidad */
+        }
+
+        /* Estilo para el texto */
+        #text {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 50px;
+            color: #000000;
+            opacity: 0;
+            transition: opacity 1s ease; /* Hacer que el texto aparezca de manera suave */
+        }
+
+        /* Estilo para el segundo gif */
+        #gif2 {
+            max-width: 500px; /* Puedes ajustar el tamaño del segundo gif aquí */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <!-- GIF inicial -->
+        <img id="gif" src="animation.gif" alt="MY GIF">  
+        <!-- Texto que aparecerá después de 5 segundos -->
+        <div id="text">IF YOU'RE MY SPIDERMAN I CAN BE YOUR DEADPOOL!!! ❤️</div>
+    </div>
+
+    <script>
+        // Después de 5 segundos, cambiamos el GIF y mostramos el texto
+        setTimeout(function() {
+            // Obtener el primer GIF y hacerlo desaparecer
+            const gif = document.getElementById('gif');
+            gif.style.opacity = 0; // Hacemos que el GIF se desvanezca
+
+            // Esperar 1 segundo antes de cambiar el GIF (para que desaparezca completamente)
+            setTimeout(function(){
+                // Cambiar la fuente del GIF
+                gif.src = 'Deadpool.gif'; // Coloca el nombre de tu nuevo GIF
+                gif.style.opacity = 1; // El nuevo GIF aparece
+                
+                // Cambiar el tamaño del segundo GIF si lo deseas
+                gif.id = "gif2";  // Asignamos un nuevo ID para el segundo GIF
+
+                // Mostrar el texto
+                const text = document.getElementById('text');
+                text.style.opacity = 1; // Hacemos que el texto aparezca
+            }, 1000); // Espera 1 segundo antes de cambiar el GIF (después de que el primero desaparezca)
+        }, 5000);  // Espera 5 segundos antes de hacer el cambio
+    </script>
+</body>
+</html>
